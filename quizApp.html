@@ -1,0 +1,78 @@
+<!--To Implement Timer Function-->
+<template>
+    <!--Only to show Section 1 : Start Quiz-->
+    <template if:false={openModal}>
+        <template if:false={showResult}>
+            <div class="app">
+                <div class="box">
+                    <p><b>KBC Quizzzz</b></p> <br>
+                    </div><br>
+                <h2> Do you Want to Start Quiz ? </h2><br>
+                <lightning-button label="Start Quiz" onclick={startQuizButton}></lightning-button>
+            </div>
+        </template>
+        
+    </template>
+    <!--Only to show Section 2 : Questions-->
+    <template if:false={showSecModal}>
+        <template if:true={openModal}>
+
+            <div class="questionApp">
+                <div class="question">
+                    <p>Quetsion is : {currentQues.question}</p>
+    
+                    <!--to show options for each currentQue-->
+                    <!--to show options for each currentQue-->
+                    <template for:each={currentQues.options} for:item="option">
+                        <div key={option.id} class="options" >
+                            <lightning-button label={option.text} value={option.id} name={option.text} onclick={handleOptionClick}>
+                            
+                            </lightning-button>
+                        </div>
+                    </template>
+                    
+                </div>
+            </div>
+               
+        </template>
+    </template>
+    
+
+    <!--to Show Only on Next Que when wrong Ans is selected-->
+    <template if:true={showSecModal}>
+        <template if:false={showResult}>
+            <div class="questionApp">
+                <div class="question">
+                    <strong>Opps!! Wrong Attempt , Next Question !!</strong>
+                    
+                </div>
+            </div>
+        </template>
+            
+        
+         
+    </template>
+    <template if:true={endQuiz}>
+        <lightning-button label="Next Question" onclick={nextQue}>
+        </lightning-button>
+    </template>
+
+    <!--to show Section 3 : End Quiz-->
+    <template if:true={endQuiz}>
+        <div class="app">
+            <h2> Do you Want to End Quiz ? </h2><br>
+            <lightning-button label="End Quiz" onclick={endQuizFun} value="end"></lightning-button>
+        </div>
+    </template>
+ 
+    <!--To show Score of the quiz-->
+    <template if:false={endQuiz}>
+        <template if:true={showResult}>
+            <p> Total Correct Answer is : {score}</p>
+            <p>Total Wrong Answer is : {wrongAns}</p>
+            <p>Your Total Quiz Score is : {result}</p>
+        </template>
+    </template>
+    <!--Display Timer-->
+    Time Left : {timer} seconds 
+</template>
