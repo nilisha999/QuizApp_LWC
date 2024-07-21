@@ -1,0 +1,49 @@
+.box{
+    width: 100px;
+    height: 70px;
+    color: white;
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+    text-align: center;
+    background-color: rgb(56, 106, 221);
+}
+
+.app{
+    background-color: lightgoldenrodyellow;
+    /*display: flex;
+    flex-wrap: wrap;*/
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.question{
+    width: 400px;
+    height: 250px;
+    color: rgb(133, 28, 224);
+    border: 1px solid black;
+    margin: 10px;
+    padding: 10px;
+    font-size: 20px;
+    justify-content: center;
+}
+
+.questionApp{
+    background-color: aquamarine;
+    /*display: flex;
+    flex-wrap: wrap;*/
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.options{
+   color: pink;
+    margin: 4px;
+    padding: 4px;
+    justify-content: center;
+    font-style: bold;
+    align-items: center;
+}
